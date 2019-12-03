@@ -1,10 +1,13 @@
-package Go_playin_star_again
+package main
 
-import(
+import (
 	"fmt"
-	"math/rand"
 )
 
 func main()  {
-	fmt.Println("My favorite number is", rand.Intn(10))
+	fmt.Println("The sum is", add(2, 3))
+}
+
+func add(x int, y int) int {
+	return x + y
 }
