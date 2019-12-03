@@ -5,9 +5,13 @@ import (
 )
 
 func main()  {
+	create("hello", false, true, 1, 2,3)
 	fmt.Println("The sum is", add(2, 3))
 }
 
-func add(x int, y int) int {
+func add(x, y int) int {
 	return x + y
+}
+func create(s string, b, b1 bool, i, i2, i3 int ) {
+	fmt.Println(s, b, b1, i, i2, i3)
 }
