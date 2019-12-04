@@ -8,6 +8,7 @@ func main()  {
 	//create("hello", false, true, 1, 2,3)
 	//fmt.Println("The sum is", add(2, 3))
 	//fmt.Println(swap("first", "last"))
+	fmt.Println(split(17))
 }
 
 // Simple function
@@ -23,4 +24,11 @@ func create(s string, b, b1 bool, i, i2, i3 int ) {
 // Multiple returns
 func swap(x string, y string) (string, string) {
 	return y, x
+}
+
+// Named return values, naked return
+func split(sum int)(x, y int) {
+	x = sum * 4 / 9
+	y = sum - x
+	return
 }
