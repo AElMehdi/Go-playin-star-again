@@ -9,7 +9,7 @@ var i, j int = 1, 2
 
 func main() {
 	// Function level declaration
-	var c, python, java = true, false, "Yes!"
+	c, python, java := true, false, "Yes!"
 	//create("hello", false, true, 1, 2,3)
 	//fmt.Println("The sum is", add(2, 3))
 	//fmt.Println(swap("first", "last"))
