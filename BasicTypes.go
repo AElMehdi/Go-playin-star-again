@@ -16,6 +16,7 @@ func main() {
 	basicTypes()
 	defaultValues()
 	typeConversions()
+	typeInference()
 }
 
 func basicTypes() {
@@ -39,4 +40,9 @@ func typeConversions() {
 	var u uint = uint(f)
 
 	fmt.Println(x, y, u)
+}
+
+func typeInference() {
+	v := 42.4i // change it
+	fmt.Printf("v is of type %T \n", v)
 }
