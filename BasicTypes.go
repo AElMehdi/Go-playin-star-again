@@ -18,6 +18,7 @@ func main() {
 	typeConversions()
 	typeInference()
 	constants()
+	numericConstants()
 }
 
 func basicTypes() {
@@ -49,6 +50,7 @@ func typeInference() {
 }
 
 const Pi = 3.14
+
 func constants() {
 	const World = "عالم"
 	fmt.Println("Hello", World)
@@ -56,4 +58,25 @@ func constants() {
 
 	const Truth = true
 	fmt.Println("Go rules?", Truth)
+}
+
+const (
+	Big   = 1 << 30
+	Small = Big >> 99
+)
+
+func needInt(x int) int {
+	return x * 10 + 1
+}
+
+func needFloat(x float64) float64 {
+	return x * 0.1
+}
+
+func numericConstants() {
+	fmt.Println(needInt(Small))
+	fmt.Println(needInt(Big))
+
+	fmt.Println(needFloat(Small))
+	fmt.Println(needFloat(Big))
 }
