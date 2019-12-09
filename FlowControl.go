@@ -3,6 +3,7 @@ package main
 func main() {
 	forLoop()
 	forLoopContinued()
+	whileLoop()
 }
 
 func forLoop() {
@@ -16,6 +17,14 @@ func forLoop() {
 func forLoopContinued() {
 	sum := 1
 	for ; sum < 1000; {
+		sum += sum
+	}
+	println(sum)
+}
+
+func whileLoop() {
+	sum := 1
+	for sum < 1000 {
 		sum += sum
 	}
 	println(sum)
