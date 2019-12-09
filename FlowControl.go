@@ -4,6 +4,7 @@ func main() {
 	forLoop()
 	forLoopContinued()
 	whileLoop()
+	forever()
 }
 
 func forLoop() {
@@ -28,4 +29,9 @@ func whileLoop() {
 		sum += sum
 	}
 	println(sum)
+}
+
+func forever() {
+	for {
+	}
 }
