@@ -17,6 +17,7 @@ func main() {
 	defaultValues()
 	typeConversions()
 	typeInference()
+	constants()
 }
 
 func basicTypes() {
@@ -45,4 +46,14 @@ func typeConversions() {
 func typeInference() {
 	v := 42.4i // change it
 	fmt.Printf("v is of type %T \n", v)
+}
+
+const Pi = 3.14
+func constants() {
+	const World = "عالم"
+	fmt.Println("Hello", World)
+	fmt.Println("Happy", Pi, "Day")
+
+	const Truth = true
+	fmt.Println("Go rules?", Truth)
 }
