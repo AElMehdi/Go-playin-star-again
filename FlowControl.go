@@ -11,6 +11,10 @@ func main() {
 	whileLoop()
 	//forever()
 	fmt.Println(sqrt(2), sqrt(-4))
+	fmt.Println(
+		pow(3, 2, 10),
+		pow(3, 3, 20),
+		)
 }
 
 func forLoop() {
@@ -37,14 +41,21 @@ func whileLoop() {
 	println(sum)
 }
 
-func forever() {
-	for {
-	}
-}
+//func forever() {
+//	for {
+//	}
+//}
 
 func sqrt(x float64) string {
 	if x < 0 {
 		return sqrt(-x) + "i"
 	}
 	return fmt.Sprint(math.Sqrt(x))
+}
+
+func pow(x, n, limit float64) float64 {
+	if v := math.Pow(x, n); v < limit {
+		return v
+	}
+	return limit
 }
