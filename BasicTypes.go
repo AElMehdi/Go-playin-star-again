@@ -12,14 +12,14 @@ var (
 	z             = cmplx.Sqrt(-5 + 12i)
 )
 
-func main() {
-	basicTypes()
-	defaultValues()
-	typeConversions()
-	typeInference()
-	constants()
-	numericConstants()
-}
+//func main() {
+//	basicTypes()
+//	defaultValues()
+//	typeConversions()
+//	typeInference()
+//	constants()
+//	numericConstants()
+//}
 
 func basicTypes() {
 	fmt.Printf("Type %T, value %v\n", toBe, toBe)
