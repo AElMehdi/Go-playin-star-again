@@ -15,3 +15,10 @@ func TestSquareRootValueTwo(t *testing.T) {
 		t.Errorf("Expecting %f to be %d", result, 1)
 	}
 }
+
+func TestSquareRootValueThree(t *testing.T) {
+	result := Sqrt(3)
+	if result != 4 {
+		t.Errorf("Expecting %f to be %d", result, 4)
+	}
+}
