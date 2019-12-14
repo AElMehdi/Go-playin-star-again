@@ -5,18 +5,25 @@ import (
 	"math"
 )
 
-var result = float64(1)
-
 func Sqrt(x float64) float64 {
+	z := float64(1)
+
 	for i := 0; i < 10; i++ {
-		adjustResult(square(result), x)
-		fmt.Printf("Current computed square %f\n", result)
+		adjustmentValue := adjustmentValue(z, x)
+
+		if adjustmentValue == 0 {
+			break
+		}
+
+		z -= adjustmentValue
+		fmt.Printf("Current computed square %f\n", z)
 	}
-	return result
+
+	return z
 }
 
-func adjustResult(squareResult float64, x float64) {
-	result -= (squareResult - x) / (2 * result)
+func adjustmentValue(z float64, x float64) float64 {
+	return (square(z) - x) / (2 * z)
 }
 
 func square(number float64) float64 {
