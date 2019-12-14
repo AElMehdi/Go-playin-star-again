@@ -6,18 +6,18 @@ import (
 	"runtime"
 )
 
-func main() {
-	//forLoop()
-	//forLoopContinued()
-	//whileLoop()
-	////forever()
-	//fmt.Println(sqrt(2), sqrt(-4))
-	//fmt.Println(
-	//	pow(3, 2, 10),
-	//	pow(3, 3, 20),
-	//	)
-	switchCase()
-}
+///*func main() {
+//	//forLoop()
+//	//forLoopContinued()
+//	//whileLoop()
+//	////forever()
+//	//fmt.Println(sqrt(2), sqrt(-4))
+//	//fmt.Println(
+//	//	pow(3, 2, 10),
+//	//	pow(3, 3, 20),
+//	//	)
+//	switchCase()
+//}*/
 
 func forLoop() {
 	sum := 0

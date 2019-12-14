@@ -5,17 +5,20 @@ import (
 	"math"
 )
 
-func Sqrt(x float64) float64 {
-	const z = float64(1)
+var result = float64(1)
 
-	if squareZ := square(z); squareZ == x {
-		fmt.Printf("Current computed square %f\n", z)
-		return z
+func Sqrt(x float64) float64 {
+	for i := 0; i < 10; i++ {
+		adjustResult(square(result), x)
+		fmt.Printf("Current computed square %f\n", result)
 	}
-	return z
+	return result
 }
 
-func square(z float64) float64 {
-	squareZ := math.Pow(z, 2)
-	return squareZ
+func adjustResult(squareResult float64, x float64) {
+	result -= (squareResult - x) / (2 * result)
+}
+
+func square(number float64) float64 {
+	return math.Pow(number, 2)
 }
