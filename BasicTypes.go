@@ -6,20 +6,33 @@ import (
 	"math/cmplx"
 )
 
+// Simple function
+func add(x, y int) int {
+	return x + y
+}
+
+// Params with same type
+func create(s string, b, b1 bool, i, i2, i3 int) {
+	fmt.Println(s, b, b1, i, i2, i3)
+}
+
+// Multiple returns
+func swap(x string, y string) (string, string) {
+	return y, x
+}
+
+// Named return values, naked return
+func split(sum int) (x, y int) {
+	x = sum * 4 / 9
+	y = sum - x
+	return
+}
+
 var (
 	toBe          = false
 	maxInt uint64 = 1<<64 - 1
 	z             = cmplx.Sqrt(-5 + 12i)
 )
-
-//func main() {
-//	basicTypes()
-//	defaultValues()
-//	typeConversions()
-//	typeInference()
-//	constants()
-//	numericConstants()
-//}
 
 func basicTypes() {
 	fmt.Printf("Type %T, value %v\n", toBe, toBe)
