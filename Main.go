@@ -38,4 +38,5 @@ func FlowControl() {
 		pow(3, 3, 20),
 	)
 	switchCase()
+	SwitchCaseEvaluationOrder()
 }
