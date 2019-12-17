@@ -90,3 +90,13 @@ func deferFunctionCall() {
 	defer fmt.Println("a 3chiri")
 	fmt.Print("Afiiiine ")
 }
+
+func stackingDefers() {
+	fmt.Println("counting down!")
+
+	for i := 0; i < 10; i++ {
+		defer fmt.Println(i)
+	}
+
+	fmt.Println("Done.")
+}
