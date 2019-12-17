@@ -84,5 +84,9 @@ func switchCaseWithoutCondition() {
 	default:
 		fmt.Println("Good evening")
 	}
+}
 
+func deferFunctionCall() {
+	defer fmt.Println("a 3chiri")
+	fmt.Print("Afiiiine ")
 }
