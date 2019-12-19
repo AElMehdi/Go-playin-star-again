@@ -7,10 +7,18 @@ type Vertex struct {
 	Y int
 }
 
+var (
+	v1 = Vertex{1, 2}  // Has type vertex
+	v2 = Vertex{X: 1}  // Y:0 is implicit
+	v3 = Vertex{}      // Both fields are set to 0
+	p  = &Vertex{1, 2} // Has type *Vertex
+)
+
 func main() {
 	pointers()
 	accessingFields()
 	accessingFieldsFromPointers()
+	structLiterals()
 }
 
 func accessingFields() {
@@ -19,12 +27,15 @@ func accessingFields() {
 	fmt.Println(v.X)
 }
 
-
 func accessingFieldsFromPointers() {
 	v := Vertex{1, 2}
-	p :=  &v
+	p := &v
 	p.X = 8
 	fmt.Println(v.X)
+}
+
+func structLiterals() {
+	fmt.Println(v1, p, v2, v3)
 }
 
 func pointers() {
