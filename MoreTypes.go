@@ -2,8 +2,14 @@ package main
 
 import "fmt"
 
+type Vertex struct {
+	X int
+	Y int
+}
+
 func main() {
 	pointers()
+	fmt.Println(Vertex{1, 2})
 }
 
 func pointers() {
