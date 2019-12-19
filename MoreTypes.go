@@ -9,8 +9,21 @@ type Vertex struct {
 
 func main() {
 	pointers()
+	accessingFields()
+	accessingFieldsFromPointers()
+}
+
+func accessingFields() {
 	v := Vertex{1, 2}
 	v.X = 4
+	fmt.Println(v.X)
+}
+
+
+func accessingFieldsFromPointers() {
+	v := Vertex{1, 2}
+	p :=  &v
+	p.X = 8
 	fmt.Println(v.X)
 }
 
