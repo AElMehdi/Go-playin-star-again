@@ -19,6 +19,20 @@ func main() {
 	accessingFields()
 	accessingFieldsFromPointers()
 	structLiterals()
+	arrays()
+}
+
+func pointers() {
+	i, j := 42, 72
+
+	p := &i         // Point to i
+	fmt.Println(*p) // Read i through the pointer
+	*p = 21         // Set i through the pointer
+	fmt.Println(i)  // See the new value of i
+
+	p = &j         // Point to j
+	*p = *p / 37   // Divide j through the pointer
+	fmt.Println(j) // See the new value of j
 }
 
 func accessingFields() {
@@ -38,15 +52,14 @@ func structLiterals() {
 	fmt.Println(v1, p, v2, v3)
 }
 
-func pointers() {
-	i, j := 42, 72
+func arrays() {
+	var greeting [2]string
+	greeting[0] = "khouna"
+	greeting[1] = "fl JouGhouna"
 
-	p := &i         // Point to i
-	fmt.Println(*p) // Read i through the pointer
-	*p = 21         // Set i through the pointer
-	fmt.Println(i)  // See the new value of i
+	fmt.Println(greeting[0], greeting[1])
+	fmt.Println(greeting)
 
-	p = &j         // Point to j
-	*p = *p / 37   // Divide j through the pointer
-	fmt.Println(j) // See the new value of j
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	fmt.Println(primes)
 }
