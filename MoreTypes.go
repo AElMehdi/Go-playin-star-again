@@ -1,4 +1,4 @@
-package main
+ package main
 
 import "fmt"
 
@@ -21,6 +21,7 @@ func main() {
 	structLiterals()
 	arrays()
 	slices()
+	slicesAndSHaredData()
 }
 
 func pointers() {
@@ -71,4 +72,21 @@ func slices() {
 	var s []int = primes[1:4]
 
 	fmt.Println(s)
+}
+
+func slicesAndSHaredData() {
+	names := [4]string{
+		"Nasser",
+		"Kamal",
+		"Redouane",
+		"Youness",
+	}
+
+	var a = names[0:2]
+	var b = names[1:3]
+
+	b[0] = "XXXX"
+
+	fmt.Println(a, b)
+	fmt.Println(names)
 }
