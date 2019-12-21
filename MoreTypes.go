@@ -1,4 +1,4 @@
- package main
+package main
 
 import "fmt"
 
@@ -22,6 +22,7 @@ func main() {
 	arrays()
 	slices()
 	slicesAndSHaredData()
+	slicesAndLiterals()
 }
 
 func pointers() {
@@ -89,4 +90,22 @@ func slicesAndSHaredData() {
 
 	fmt.Println(a, b)
 	fmt.Println(names)
+}
+
+func slicesAndLiterals() {
+	booleans := []bool{true, false, false,}
+	fmt.Println(booleans)
+
+	integers := []int{1, 5, 6, 8, 9,}
+	fmt.Println(integers)
+
+	structTypes := [] struct {
+		i int
+		b bool
+	}{
+		{1, true},
+		{0, false},
+	}
+
+	fmt.Println(structTypes)
 }
