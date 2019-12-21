@@ -23,6 +23,7 @@ func main() {
 	slices()
 	slicesAndSHaredData()
 	slicesAndLiterals()
+	slicesDefaultBounds()
 }
 
 func pointers() {
@@ -108,4 +109,18 @@ func slicesAndLiterals() {
 	}
 
 	fmt.Println(structTypes)
+}
+
+func slicesDefaultBounds() {
+	numbers := []int{3, 5, 8, 7, 9,}
+	fmt.Println(numbers)
+
+	numbers = numbers[2:5]
+	fmt.Println(numbers) // 8 7 9
+
+	numbers = numbers[:2]
+	fmt.Println(numbers) // 8 7
+
+	numbers = numbers[1:]
+	fmt.Println(numbers) // 7
 }
