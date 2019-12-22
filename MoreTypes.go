@@ -24,6 +24,7 @@ func main() {
 	slicesAndSHaredData()
 	slicesAndLiterals()
 	slicesDefaultBounds()
+	slicesLengthCapacity()
 }
 
 func pointers() {
@@ -123,4 +124,22 @@ func slicesDefaultBounds() {
 
 	numbers = numbers[1:]
 	fmt.Println(numbers) // 7
+}
+
+func slicesLengthCapacity() {
+	aSlice := []int{1, 7, 8, 7, 6, 4, 11,}
+
+	aSlice = aSlice[:0] // empty
+	printSlice(aSlice) // l=0 c=7
+
+	aSlice = aSlice[2:5] // 8 7 6
+	printSlice(aSlice) // l=3 c=5
+
+	aSlice = aSlice[1:3] // 7 6
+	printSlice(aSlice) // l=2 c=4
+
+}
+
+func printSlice(aSlice []int) {
+	fmt.Printf("length = %d, capacity = %d, %v\n", len(aSlice), cap(aSlice), aSlice)
 }
