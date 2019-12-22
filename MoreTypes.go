@@ -25,6 +25,7 @@ func main() {
 	slicesAndLiterals()
 	slicesDefaultBounds()
 	slicesLengthCapacity()
+	aNilSlice()
 }
 
 func pointers() {
@@ -137,7 +138,14 @@ func slicesLengthCapacity() {
 
 	aSlice = aSlice[1:3] // 7 6
 	printSlice(aSlice) // l=2 c=4
+}
 
+func aNilSlice() {
+	var s []int
+	printSlice(s)
+	if s == nil {
+		fmt.Println("S is nil!")
+	}
 }
 
 func printSlice(aSlice []int) {
