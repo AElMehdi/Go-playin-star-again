@@ -26,6 +26,7 @@ func main() {
 	slicesDefaultBounds()
 	slicesLengthCapacity()
 	aNilSlice()
+	createSliceUsingMake()
 }
 
 func pointers() {
@@ -131,13 +132,13 @@ func slicesLengthCapacity() {
 	aSlice := []int{1, 7, 8, 7, 6, 4, 11,}
 
 	aSlice = aSlice[:0] // empty
-	printSlice(aSlice) // l=0 c=7
+	printSlice(aSlice)  // l=0 c=7
 
 	aSlice = aSlice[2:5] // 8 7 6
-	printSlice(aSlice) // l=3 c=5
+	printSlice(aSlice)   // l=3 c=5
 
 	aSlice = aSlice[1:3] // 7 6
-	printSlice(aSlice) // l=2 c=4
+	printSlice(aSlice)   // l=2 c=4
 }
 
 func aNilSlice() {
@@ -146,6 +147,21 @@ func aNilSlice() {
 	if s == nil {
 		fmt.Println("S is nil!")
 	}
+}
+
+func createSliceUsingMake() {
+	numbers := make([]int, 0)
+	printSlice(numbers) // l=0 c=0 []
+
+	numbersWithACapacity := make([]int, 0, 5)
+	printSlice(numbersWithACapacity) // l=0 c=5 []
+
+	numbersWithACapacity = numbersWithACapacity[:2]
+	printSlice(numbersWithACapacity) // l=2 c=5 [0 0]
+
+	numbersWithACapacity = numbersWithACapacity[1:]
+	printSlice(numbersWithACapacity) // l=1 c=4 [0]
+
 }
 
 func printSlice(aSlice []int) {
