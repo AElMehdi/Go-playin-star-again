@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Vertex struct {
 	X int
@@ -27,6 +30,7 @@ func main() {
 	slicesLengthCapacity()
 	aNilSlice()
 	createSliceUsingMake()
+	ticToc()
 }
 
 func pointers() {
@@ -166,4 +170,23 @@ func createSliceUsingMake() {
 
 func printSlice(aSlice []int) {
 	fmt.Printf("length = %d, capacity = %d, %v\n", len(aSlice), cap(aSlice), aSlice)
+}
+
+func ticToc() {
+	board := [][]string{
+		{"_", "_", "_",},
+		{"_", "_", "_",},
+		{"_", "_", "_",},
+	}
+
+	// Players take turns
+	board[0][0] = "X"
+	board[1][0] = "O"
+	board[0][2] = "X"
+	board[1][2] = "X"
+	board[2][2] = "O"
+
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
 }
