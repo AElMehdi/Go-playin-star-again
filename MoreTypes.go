@@ -31,6 +31,7 @@ func main() {
 	aNilSlice()
 	createSliceUsingMake()
 	ticToc()
+	appendToASlice()
 }
 
 func pointers() {
@@ -166,6 +167,20 @@ func createSliceUsingMake() {
 	numbersWithACapacity = numbersWithACapacity[1:]
 	printSlice(numbersWithACapacity) // l=1 c=4 [0]
 
+}
+
+func appendToASlice() {
+	var numbers []int
+	printSlice(numbers)
+
+	numbers = append(numbers, 0)
+	printSlice(numbers)
+
+	numbers = append(numbers, 1)
+	printSlice(numbers)
+
+	numbers = append(numbers, 3, 5, 7, 9)
+	printSlice(numbers)
 }
 
 func printSlice(aSlice []int) {
