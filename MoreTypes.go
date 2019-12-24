@@ -32,6 +32,7 @@ func main() {
 	createSliceUsingMake()
 	ticToc()
 	appendToASlice()
+	rangeOfASlice()
 }
 
 func pointers() {
@@ -203,5 +204,13 @@ func ticToc() {
 
 	for i := 0; i < len(board); i++ {
 		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
+}
+
+func rangeOfASlice() {
+	var pow = []int{1, 2, 4, 8, 16, 32, 64, 128,}
+
+	for i, v := range pow {
+		fmt.Printf("2**%d = %d\n", i, v)
 	}
 }
