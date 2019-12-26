@@ -34,6 +34,7 @@ func main() {
 	appendToASlice()
 	rangeOfASlice()
 	rangePower()
+	maps()
 }
 
 func pointers() {
@@ -226,4 +227,14 @@ func rangePower() {
 	for _, value := range pow {
 		fmt.Printf("%d\n", value)
 	}
+}
+
+func maps() {
+	type Vertex struct {
+		long, lat float64
+	}
+
+	vertices := make(map[string]Vertex)
+	vertices["Bell Labs"] = Vertex{40.68433, -74.39967,}
+	fmt.Println(vertices["Bell Labs"])
 }
