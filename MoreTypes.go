@@ -229,12 +229,12 @@ func rangePower() {
 	}
 }
 
-func maps() {
-	type Vertex struct {
-		long, lat float64
-	}
+type Address struct {
+	long, lat float64
+}
 
-	vertices := make(map[string]Vertex)
-	vertices["Bell Labs"] = Vertex{40.68433, -74.39967,}
-	fmt.Println(vertices["Bell Labs"])
+func maps() {
+	addresses := make(map[string]Address)
+	addresses["Bell Labs"] = Address{40.68433, -74.39967,}
+	fmt.Println(addresses["Bell Labs"])
 }
