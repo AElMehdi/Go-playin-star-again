@@ -35,6 +35,7 @@ func main() {
 	rangeOfASlice()
 	rangePower()
 	maps()
+	mapsLiterals()
 }
 
 func pointers() {
@@ -237,4 +238,12 @@ func maps() {
 	addresses := make(map[string]Address)
 	addresses["Bell Labs"] = Address{40.68433, -74.39967,}
 	fmt.Println(addresses["Bell Labs"])
+}
+
+func mapsLiterals() {
+	var addresses = map[string]Address{
+		"Bell Labs": {40.68433, -74.39967},
+		"Google": {37.42202, -122.08408},
+	}
+	fmt.Println(addresses)
 }
