@@ -36,6 +36,7 @@ func main() {
 	rangePower()
 	maps()
 	mapsLiterals()
+	mapsOperations()
 }
 
 func pointers() {
@@ -243,7 +244,23 @@ func maps() {
 func mapsLiterals() {
 	var addresses = map[string]Address{
 		"Bell Labs": {40.68433, -74.39967},
-		"Google": {37.42202, -122.08408},
+		"Google":    {37.42202, -122.08408},
 	}
 	fmt.Println(addresses)
+}
+
+func mapsOperations() {
+	m := make(map[string]int)
+
+	m["Answer"] = 42
+	fmt.Println("The value:", m["Answer"])
+
+	m["Answer"] = 44
+	fmt.Println("The value:", m["Answer"])
+
+	delete(m, "Answer")
+	fmt.Println("The value:", m["Answer"])
+
+	v, ok := m["Answer"]
+	fmt.Printf("The value: %v, exists:%v\n", v, ok)
 }
