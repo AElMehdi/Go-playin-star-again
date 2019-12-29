@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -37,6 +38,7 @@ func main() {
 	maps()
 	mapsLiterals()
 	mapsOperations()
+	functionValues()
 }
 
 func pointers() {
@@ -263,4 +265,19 @@ func mapsOperations() {
 
 	v, ok := m["Answer"]
 	fmt.Printf("The value: %v, exists:%v\n", v, ok)
+}
+
+func compute(fn func(x, y float64) float64) float64 {
+	return fn(3, 4)
+}
+
+func functionValues() {
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+
+	fmt.Println(hypot(5, 2))
+	fmt.Println(compute(hypot))
+
+	fmt.Println(compute(math.Pow))
 }
