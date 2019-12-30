@@ -39,6 +39,7 @@ func main() {
 	mapsLiterals()
 	mapsOperations()
 	functionValues()
+	closure()
 }
 
 func pointers() {
@@ -280,4 +281,20 @@ func functionValues() {
 	fmt.Println(compute(hypot))
 
 	fmt.Println(compute(math.Pow))
+}
+
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
+func closure() {
+	neg, pos := adder(), adder()
+
+	for i := 0; i < 10; i++ {
+		fmt.Println(pos(i), neg(-2*i))
+	}
 }
