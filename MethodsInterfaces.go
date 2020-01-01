@@ -6,6 +6,8 @@ func main() {
 	methods()
 }
 
+type MyInt int
+
 type User struct {
 	name string
 	age int
@@ -13,6 +15,10 @@ type User struct {
 
 func (u User) isAdult() bool {
 	return u.age >= 18
+}
+
+func (age MyInt) isAdult() bool {
+	return age >= 18
 }
 
 func isAdult(user User) bool {
@@ -23,4 +29,7 @@ func methods() {
 	anAdult := User{"Dean", 45,}
 	fmt.Println(anAdult.isAdult())
 	fmt.Println(isAdult(anAdult))
+	
+	anAge := MyInt(13)
+	fmt.Println(anAge.isAdult())
 }
