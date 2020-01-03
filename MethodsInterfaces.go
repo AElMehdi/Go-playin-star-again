@@ -18,8 +18,8 @@ func (u User) isAdult() bool {
 	return u.age >= 18
 }
 
-func (u *User) setAge() {
-	u.age = u.age + 18
+func setAge(u *User, age int) {
+	u.age = u.age + age
 }
 
 func (age MyInt) isAdult() bool {
@@ -42,6 +42,6 @@ func methods() {
 func pointerReceivers() {
 	youssef := User{"Youssef", 15}
 	fmt.Println(youssef.isAdult())
-	youssef.setAge()
+	setAge(&youssef, 3)
 	fmt.Println(youssef.isAdult())
 }
