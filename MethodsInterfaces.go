@@ -9,6 +9,7 @@ func main() {
 	methods()
 	pointerReceivers()
 	interfaces()
+	noImplicitImplementation()
 }
 
 type MyInt int
@@ -88,4 +89,23 @@ func interfaces() {
 	a = &v
 
 	fmt.Println(a.abs())
+}
+
+
+type I interface {
+	M()
+}
+
+type T struct {
+	S string
+}
+
+// Implicit implementation of an interface
+func (t T) M() {
+	fmt.Println(t.S)
+}
+
+func noImplicitImplementation() {
+	var i I = T{"Hello"}
+	i.M()
 }
