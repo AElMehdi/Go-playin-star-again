@@ -78,6 +78,10 @@ func (f MyFloat) abs() float64 {
 	return float64(f)
 }
 
+func (f MyFloat) M() {
+	fmt.Println(f)
+}
+
 func interfaces() {
 	var a Abser
 	f := MyFloat(-math.Sqrt2)
@@ -91,7 +95,6 @@ func interfaces() {
 	fmt.Println(a.abs())
 }
 
-
 type I interface {
 	M()
 }
@@ -101,11 +104,24 @@ type T struct {
 }
 
 // Implicit implementation of an interface
-func (t T) M() {
+//func (t T) M() {
+//	fmt.Println(t.S)
+//}
+
+func (t *T) M() {
 	fmt.Println(t.S)
 }
 
 func noImplicitImplementation() {
-	var i I = T{"Hello"}
+	var i I = &T{"Hello"}
+	describe(i)
 	i.M()
+
+	i = MyFloat(math.Pi)
+	describe(i)
+	i.M()
+}
+
+func describe(i I) {
+	fmt.Printf("(%T , %v)\n", i, i)
 }
