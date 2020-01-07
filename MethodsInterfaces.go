@@ -109,6 +109,10 @@ type T struct {
 //}
 
 func (t *T) M() {
+	if t == nil {
+		fmt.Println("<nil>")
+		return
+	}
 	fmt.Println(t.S)
 }
 
@@ -120,8 +124,13 @@ func noImplicitImplementation() {
 	i = MyFloat(math.Pi)
 	describe(i)
 	i.M()
+
+	var t *T
+	i = t
+	describe(i)
+	i.M()
 }
 
 func describe(i I) {
-	fmt.Printf("(%T , %v)\n", i, i)
+	fmt.Printf("(%v , %T)\n", i, i)
 }
