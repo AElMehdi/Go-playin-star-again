@@ -129,6 +129,13 @@ func noImplicitImplementation() {
 	i = t
 	describe(i)
 	i.M()
+
+	// Nil interface without type
+	var iAsNil I
+	describe(iAsNil)
+	// This call will result on a runtime error
+	// No type inside the interface tuple to indicate which concrete method to call
+	// iAsNil.M()
 }
 
 func describe(i I) {
