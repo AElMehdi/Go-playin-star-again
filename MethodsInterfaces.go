@@ -11,6 +11,7 @@ func main() {
 	interfaces()
 	noImplicitImplementation()
 	emptyInterface()
+	typeAssertions()
 }
 
 type MyInt int
@@ -156,4 +157,20 @@ func emptyInterface() {
 
 func describeEmpty(i interface{}) {
 	fmt.Printf("(%v , %T)\n", i, i)
+}
+
+func typeAssertions() {
+	var i interface{} = "Hello"
+
+	s := i.(string)
+	fmt.Println(s)
+
+	s, ok := i.(string)
+	fmt.Println(s, ok)
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok)
+
+	//f = i.(float64) // panic
+	fmt.Println(f)
 }
