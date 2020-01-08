@@ -10,6 +10,7 @@ func main() {
 	pointerReceivers()
 	interfaces()
 	noImplicitImplementation()
+	emptyInterface()
 }
 
 type MyInt int
@@ -139,5 +140,20 @@ func noImplicitImplementation() {
 }
 
 func describe(i I) {
+	fmt.Printf("(%v , %T)\n", i, i)
+}
+
+func emptyInterface() {
+	var i interface{}
+	describeEmpty(i)
+
+	i = 42
+	describeEmpty(i)
+
+	i = "A feeeeeeen"
+	describeEmpty(i)
+}
+
+func describeEmpty(i interface{}) {
 	fmt.Printf("(%v , %T)\n", i, i)
 }
