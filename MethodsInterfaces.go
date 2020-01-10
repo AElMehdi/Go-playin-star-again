@@ -14,6 +14,7 @@ func main() {
 	typeAssertions()
 	typeSwitches()
 	stringers()
+	ipAddressStringer()
 }
 
 type MyInt int
@@ -204,4 +205,22 @@ func stringers() {
 	youssef := User{"Youssef", 22,}
 
 	fmt.Println(marouane, youssef)
+}
+
+// Exercise on Stringers
+type IpAddr [4]byte
+
+func (ip IpAddr) String() string {
+	return fmt.Sprintf("[%v.%v.%v.%v]", ip[0], ip[1], ip[2], ip[3])
+}
+
+func ipAddressStringer() {
+	hosts := map[string]IpAddr{
+		"loopback": {127, 0, 0, 1},
+		"googleDNS": {8, 8, 8, 8},
+	}
+
+	for name, ip := range hosts {
+		fmt.Printf("%v: %v\n", name, ip)
+	}
 }
