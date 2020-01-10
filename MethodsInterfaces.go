@@ -13,6 +13,7 @@ func main() {
 	emptyInterface()
 	typeAssertions()
 	typeSwitches()
+	stringers()
 }
 
 type MyInt int
@@ -191,4 +192,16 @@ func do(i interface{}) {
 	default:
 		fmt.Printf("I don't know about type %T\n", v)
 	}
+}
+
+// The User struct implements Stringer interface
+func (u User) String() string {
+	return fmt.Sprintf("%v (%v years)", u.name, u.age)
+}
+
+func stringers() {
+	marouane := User{"Marouane", 21,}
+	youssef := User{"Youssef", 22,}
+
+	fmt.Println(marouane, youssef)
 }
