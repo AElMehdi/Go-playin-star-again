@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"time"
 )
 
 func main() {
@@ -15,6 +16,7 @@ func main() {
 	typeSwitches()
 	stringers()
 	ipAddressStringer()
+	errors()
 }
 
 type MyInt int
@@ -216,11 +218,31 @@ func (ip IpAddr) String() string {
 
 func ipAddressStringer() {
 	hosts := map[string]IpAddr{
-		"loopback": {127, 0, 0, 1},
+		"loopback":  {127, 0, 0, 1},
 		"googleDNS": {8, 8, 8, 8},
 	}
 
 	for name, ip := range hosts {
 		fmt.Printf("%v: %v\n", name, ip)
+	}
+}
+
+type MyError struct {
+	when time.Time
+	what string
+}
+
+func (e *MyError) Error() string {
+	return fmt.Sprintf("at %v, %s", e.when, e.what)
+}
+
+func run() error {
+	return &MyError{time.Now(),
+		"it didn't work",}
+}
+
+func errors() {
+	if err := run(); err != nil {
+		fmt.Println(err)
 	}
 }
