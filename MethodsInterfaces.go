@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"math"
+	"strings"
 	"time"
 )
 
@@ -17,6 +19,7 @@ func main() {
 	stringers()
 	ipAddressStringer()
 	errors()
+	readers()
 }
 
 type MyInt int
@@ -244,5 +247,22 @@ func run() error {
 func errors() {
 	if err := run(); err != nil {
 		fmt.Println(err)
+	}
+}
+
+// Reader interface
+func readers() {
+	aString:= strings.NewReader("Chiwasu! genki dayou?")
+
+	bytes := make([]byte, 8)
+
+	for  {
+		n, err := aString.Read(bytes)
+
+		fmt.Printf("n = %v err = %v b = %v\n", n, err, bytes)
+		fmt.Printf("b[:n] = %q\n", bytes[:n])
+		if err == io.EOF {
+			break
+		}
 	}
 }
