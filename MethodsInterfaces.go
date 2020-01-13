@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"image"
 	"io"
 	"math"
 	"strings"
@@ -20,6 +21,7 @@ func main() {
 	ipAddressStringer()
 	errors()
 	readers()
+	images()
 }
 
 type MyInt int
@@ -252,11 +254,11 @@ func errors() {
 
 // Reader interface
 func readers() {
-	aString:= strings.NewReader("Chiwasu! genki dayou?")
+	aString := strings.NewReader("Chiwasu! genki dayou?")
 
 	bytes := make([]byte, 8)
 
-	for  {
+	for {
 		n, err := aString.Read(bytes)
 
 		fmt.Printf("n = %v err = %v b = %v\n", n, err, bytes)
@@ -265,4 +267,10 @@ func readers() {
 			break
 		}
 	}
+}
+
+func images() {
+	image := image.NewRGBA(image.Rect(0, 0, 100, 100))
+	fmt.Println(image.Bounds())
+	fmt.Println(image.At(0,0).RGBA())
 }
