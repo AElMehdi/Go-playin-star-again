@@ -8,6 +8,7 @@ import (
 func main() {
 	goroutines()
 	channels()
+	bufferedChannels()
 }
 
 func goroutines() {
@@ -41,4 +42,12 @@ func sum(s []int, c chan int) {
 		sum += v
 	}
 	c <- sum
+}
+
+func bufferedChannels() {
+	c := make(chan int, 2)
+	c <- 1
+	c <- 2
+	fmt.Println(<-c)
+	fmt.Println(<-c)
 }
