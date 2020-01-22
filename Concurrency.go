@@ -10,6 +10,7 @@ func main() {
 	channels()
 	bufferedChannels()
 	rangeAndClose()
+	selectBlock()
 }
 
 func goroutines() {
@@ -68,4 +69,32 @@ func fibonacci(n int, c chan int) {
 		x, y = y, x+y
 	}
 	close(c)
+}
+
+func fibonacciSelect(c, quit chan int) {
+	x, y := 0, 1
+
+	for  {
+		select {
+		case c <- x:
+			x, y = y, x+y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+	}
+}
+
+func selectBlock() {
+	c := make(chan int)
+	quit := make(chan int)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			fmt.Println(<-c)
+		}
+		quit <- 0
+	}()
+
+	fibonacciSelect(c, quit)
 }
