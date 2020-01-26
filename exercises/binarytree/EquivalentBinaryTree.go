@@ -57,5 +57,5 @@ func main() {
 /*
 1- Walk a single tree DONE
 2- Print the values from the channel passed to the Walk function DONE
-3- Implement the Same function which will just compare two tree, through the values passed in the channels! Done
+3- Implement the Same function which will just compare two tree, through the values passed in the channels! DONE
 */

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sync"
 	"time"
 )
 
@@ -12,6 +13,7 @@ func main() {
 	rangeAndClose()
 	selectBlock()
 	selectBlockDefaultCase()
+	mutex()
 }
 
 func goroutines() {
@@ -116,4 +118,34 @@ func selectBlockDefaultCase() {
 			time.Sleep(50 * time.Millisecond)
 		}
 	}
+}
+
+// Mutex
+// A safe counter that can be used concurrently
+type SafeCounter struct {
+	v   map[string]int
+	mux sync.Mutex
+}
+
+func (s *SafeCounter) Inc(key string) {
+	s.mux.Lock()
+	s.v[key]++
+	s.mux.Unlock()
+}
+
+func (s *SafeCounter) Value(key string) int {
+	s.mux.Lock()
+	defer s.mux.Unlock()
+	return s.v[key]
+}
+
+func mutex() {
+	safeCounter := SafeCounter{v: make(map[string]int)}
+
+	for i := 0; i < 1000; i++ {
+		go safeCounter.Inc("somekey")
+	}
+
+	time.Sleep(time.Second)
+	fmt.Println(safeCounter.Value("somekey"))
 }
