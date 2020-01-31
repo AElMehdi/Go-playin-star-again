@@ -7,8 +7,8 @@ import (
 
 // Walks the tree t and send the values in the channel
 func Walk(t *tree.Tree, ch chan int) {
+	defer close(ch)
 	recursiveWalker(t, ch)
-	close(ch)
 }
 
 func recursiveWalker(t *tree.Tree, ch chan int) {
