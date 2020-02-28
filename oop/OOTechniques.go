@@ -7,11 +7,16 @@ func main() {
 	shape := Shape{color: "black"}
 	circle := Circle{shape: shape, otherProps: "someProp"}
 	fmt.Println(circle)
+	circle.shape.shapeFunc()
 }
 
 // Code reuse by composition
 type Shape struct {
 	color string
+}
+
+func (s *Shape) shapeFunc() {
+	fmt.Println("Shape function called")
 }
 
 // Circle needs part of Shape properties
