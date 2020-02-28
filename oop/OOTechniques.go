@@ -4,13 +4,20 @@ package main
 import "fmt"
 
 func main() {
+	simpleCodeCodeReuse()
+	delegation()
+}
+
+func simpleCodeCodeReuse() {
 	shape := Shape{color: "black"}
 	circle := Circle{shape: shape, otherProps: "someProp"}
 	fmt.Println(circle)
 	circle.shape.shapeFunc()
+}
 
+func delegation() {
 	fmt.Println("Second example")
-	dog := Dog{Animal{}}
+	dog := Dog{}
 	dog.eat()
 }
 
@@ -47,17 +54,18 @@ func (a *Animal) jump() {
 }
 
 type Dog struct {
-	a Animal
+	Animal // Embedding
+	//a Animal
 }
 
-func (d *Dog) eat() {
-	d.a.eat()
-}
-
-func (d *Dog) sleep() {
-	d.a.sleep()
-}
-
-func (d *Dog) jump() {
-	d.a.jump()
-}
+//func (d *Dog) eat() {
+//	d.a.eat()
+//}
+//
+//func (d *Dog) sleep() {
+//	d.a.sleep()
+//}
+//
+//func (d *Dog) jump() {
+//	d.a.jump()
+//}
