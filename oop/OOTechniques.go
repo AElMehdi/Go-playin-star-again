@@ -8,6 +8,10 @@ func main() {
 	circle := Circle{shape: shape, otherProps: "someProp"}
 	fmt.Println(circle)
 	circle.shape.shapeFunc()
+
+	fmt.Println("Second example")
+	dog := Dog{Animal{}}
+	dog.eat()
 }
 
 // Code reuse by composition
@@ -23,4 +27,37 @@ func (s *Shape) shapeFunc() {
 type Circle struct {
 	shape      Shape
 	otherProps string
+}
+
+// Another example with a lot of functions
+// Using delegation
+type Animal struct {
+}
+
+func (a *Animal) eat() {
+	fmt.Println("Animal eats")
+}
+
+func (a *Animal) sleep() {
+	fmt.Println("Animal sleeps")
+}
+
+func (a *Animal) jump() {
+	fmt.Println("Animal jumps")
+}
+
+type Dog struct {
+	a Animal
+}
+
+func (d *Dog) eat() {
+	d.a.eat()
+}
+
+func (d *Dog) sleep() {
+	d.a.sleep()
+}
+
+func (d *Dog) jump() {
+	d.a.jump()
 }
