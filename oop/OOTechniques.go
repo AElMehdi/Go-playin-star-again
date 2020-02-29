@@ -9,6 +9,7 @@ func main() {
 }
 
 func simpleCodeCodeReuse() {
+	fmt.Println("Code reuse example:")
 	shape := Shape{color: "black"}
 	circle := Circle{shape: shape, otherProps: "someProp"}
 	fmt.Println(circle)
@@ -16,9 +17,9 @@ func simpleCodeCodeReuse() {
 }
 
 func delegation() {
-	fmt.Println("Second example")
+	fmt.Println("Delegation example:")
 	dog := Dog{}
-	dog.eat()
+	dog.Eat()
 }
 
 // Code reuse by composition
@@ -58,14 +59,16 @@ type Dog struct {
 	//a Animal
 }
 
-//func (d *Dog) eat() {
-//	d.a.eat()
+//func (d *Dog) Eat() {
+//	d.a.Eat()
 //}
 //
-//func (d *Dog) sleep() {
-//	d.a.sleep()
+//func (d *Dog) Sleep() {
+//	d.a.Sleep()
 //}
 //
-//func (d *Dog) jump() {
-//	d.a.jump()
+//func (d *Dog) Jump() {
+//	d.a.Jump()
 //}
+
+}
