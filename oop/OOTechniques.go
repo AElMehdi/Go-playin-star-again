@@ -6,6 +6,7 @@ import "fmt"
 func main() {
 	simpleCodeCodeReuse()
 	delegation()
+	polymorphism()
 }
 
 func simpleCodeCodeReuse() {
@@ -42,15 +43,15 @@ type Circle struct {
 type Animal struct {
 }
 
-func (a *Animal) eat() {
+func (a *Animal) Eat() {
 	fmt.Println("Animal eats")
 }
 
-func (a *Animal) sleep() {
+func (a *Animal) Sleep() {
 	fmt.Println("Animal sleeps")
 }
 
-func (a *Animal) jump() {
+func (a *Animal) Jump() {
 	fmt.Println("Animal jumps")
 }
 
@@ -70,5 +71,21 @@ type Dog struct {
 //func (d *Dog) Jump() {
 //	d.a.Jump()
 //}
+
+
+// Dynamic dispatch/Polymorphism using interface
+type Sleeper interface {
+	Sleep()
+}
+
+type Cat struct {
+	Animal
+}
+func polymorphism()  {
+	fmt.Println("Polymorphism example:")
+	pets := []Sleeper{new(Dog), new(Cat)}
+	for _, pet := range pets {
+		pet.Sleep()
+	}
 
 }
