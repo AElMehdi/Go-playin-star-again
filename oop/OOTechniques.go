@@ -4,9 +4,26 @@ package main
 import "fmt"
 
 func main() {
+	methodsExample()
 	simpleCodeCodeReuse()
 	delegation()
 	polymorphism()
+}
+
+// Methods in Go
+// Go doesn't have classes but you can have methods on any type declared by type definition by using the func receiver
+type myInt int
+
+func (m myInt) IsPositive() bool {
+	return m > 0
+}	
+
+func methodsExample() {
+	m := myInt(12)
+	fmt.Println(m.IsPositive())
+
+	m = myInt(-78)
+	fmt.Println(m.IsPositive())
 }
 
 func simpleCodeCodeReuse() {
