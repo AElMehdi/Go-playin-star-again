@@ -30,6 +30,7 @@ func main() {
 	slicesDefaultBounds()
 	slicesLengthCapacity()
 	aNilSlice()
+	anEmptySlice()
 	createSliceUsingMake()
 	ticToc()
 	appendToASlice()
@@ -160,6 +161,22 @@ func aNilSlice() {
 	if s == nil {
 		fmt.Println("S is nil!")
 	}
+}
+
+func anEmptySlice() {
+	var aNilSlice []int
+	var anEmptySlice = []int{} // It's not recommended to use empty slice except when you need to have an empty array when encoding a JSON
+
+	printSlice(aNilSlice)
+	printSlice(anEmptySlice)
+	// Add some elements and empty the slice
+	anEmptySlice = append(anEmptySlice, 2, 3, 5)
+	fmt.Println("Add some elements:")
+	printSlice(anEmptySlice)
+	anEmptySlice = anEmptySlice[:0] // That will keep the underlying array
+	fmt.Println("Empty the slice")
+	printSlice(anEmptySlice)
+
 }
 
 func createSliceUsingMake() {

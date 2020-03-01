@@ -16,7 +16,7 @@ type myInt int
 
 func (m myInt) IsPositive() bool {
 	return m > 0
-}	
+}
 
 func methodsExample() {
 	m := myInt(12)
