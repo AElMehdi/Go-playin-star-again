@@ -9,6 +9,7 @@ func main() {
 	closureExample()
 	closuresAndScope()
 	higherOrderFunction()
+	currying()
 }
 
 // Closures
@@ -57,4 +58,18 @@ func mapForEach(list []string, function func(it string) int) []int {
 		result = append(result, function(word))
 	}
 	return result
+}
+
+func currying() {
+	var add = func(x int) func(y int) int {
+		return func(y int) int {
+			return y + x
+		}
+	}
+
+	var add10 = add(10)
+	var add20 = add(20)
+
+	fmt.Println(add10(5))
+	fmt.Println(add20(5))
 }
